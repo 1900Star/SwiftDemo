@@ -9,7 +9,19 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            ScrollView(.horizontal, showsIndicators : false){
+                HStack(spacing : 0){
+                    PostItem(postBean: postList.list[1]).frame(width: UIScreen.main.bounds.width)
+                    PostItem(postBean: postList.list[2]).frame(width: UIScreen.main.bounds.width)
+                    
+                }
+            }
+            .edgesIgnoringSafeArea(.bottom)
+            .navigationBarItems(leading: HomeNavigationBar(leftPercent: 0))
+            .navigationBarTitle("首页", displayMode: .inline)
+            
+        }
     }
 }
 
